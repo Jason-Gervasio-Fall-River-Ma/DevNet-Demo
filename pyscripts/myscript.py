@@ -25,7 +25,7 @@ IDEAS = {
 def main() -> None:
 	"""Choose and print a project idea."""
 	print("\n✨ THE TINY IDEA MACHINE ✨")
-	print("Brought to you by DevNet learning resources.\n")
+	print("Brought to you by Jason's learning resources.\n")
 	print("Categories: build, play, learn (press Enter for a surprise)")
 	category = input("> ").strip().lower()
 
