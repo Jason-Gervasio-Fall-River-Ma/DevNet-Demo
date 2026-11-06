@@ -1,0 +1,55 @@
+import json
+
+with open('r1.json') as file:
+    json_data = json.load(file)
+
+router_json = '''
+{
+    "router": {
+        "hostname": "R1",
+        "interfaces": {
+            "interface": [
+                {
+                    "id": 0,
+                    "enabled": true,
+                    "name": "GigabitEthernet0/0",
+                    "ip_address": "192.168.1.1",
+                    "subnet_mask": "255.255.255.0"
+                },
+                {
+                    "id": 1,
+                    "enabled": true,
+                    "name": "GigabitEthernet0/1",
+                    "ip_address": "192.168.2.1",
+                    "subnet_mask": "255.255.255.0"
+                }
+            ]
+        },
+        "routing": {
+            "routes": {
+                "route": [
+                    {
+                        "destination": "192.168.3.0",
+                        "subnet_mask": "255.255.255.0",
+                        "next_hop": "192.168.1.2"
+                    },
+                    {
+                        "destination": "192.168.4.0",
+                        "subnet_mask": "255.255.255.0",
+                        "next_hop": "192.168.2.2"
+                    },
+                    {
+                        "destination": "0.0.0.0",
+                        "subnet_mask": "0.0.0.0",
+                        "next_hop": "192.168.1.2"
+                    }
+                ]
+            }
+        }
+    }
+}
+
+'''
+data = json.loads(router_json)
+
+print(data['router']['interfaces']['interface'][0])
